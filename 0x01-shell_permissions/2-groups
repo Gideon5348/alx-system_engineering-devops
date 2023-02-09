@@ -1,1 +1,2 @@
-id -G betty
+#!/bin/bash
+id -G
