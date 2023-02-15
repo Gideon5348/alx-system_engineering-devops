@@ -1,2 +1,2 @@
 #!/bin/bash
-cat iacta iacta | sort -1 tail > iacta_duplicate
+tail -n 1 iacta >> iacta
