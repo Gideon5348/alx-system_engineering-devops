@@ -1,3 +1,2 @@
-ls
 #!/bin/bash
 tr -d cC 
