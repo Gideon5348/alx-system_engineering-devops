@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script lists the contents of the current directory
+# in a list format, displaying only the part of the name
+# after the first dash.
+
+# Use a for loop to iterate through files in the current directory
+for file in *; do
+    # Check if the file is not a hidden file
+    if [[ ! "$file" =~ ^\..* ]]; then
+        # Extract the part of the name after the first dash
+        display_name=$(echo "$file" | cut -d'-' -f2-)
+        echo "$display_name"
+    fi
+done
