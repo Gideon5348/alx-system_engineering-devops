@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script displays information about users from the /etc/passwd file using a while loop and IFS.
+# This script displays information about users from the /etc/passwd file.
 
 # Set IFS to colon (:) to split fields in /etc/passwd
 IFS=":"
