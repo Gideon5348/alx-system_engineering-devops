@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Use awk to process the Apache log file, group by IP
+#and HTTP status code, and count occurrences
+awk '{count[$1" "$9]++} END {for (entry in count) print count[entry], entry}' apache-access.log |
+
+# Sort the data in descending order of occurrences
+sort -nr
