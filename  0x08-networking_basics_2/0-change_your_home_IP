@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script to configure DNS resolution on Ubuntu server
+
+# Check if the script is running with superuser privileges
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root or with sudo."
+  exit 1
+fi
+
+# Update the /etc/hosts file to configure DNS resolution
+echo "127.0.0.2 localhost" >> /etc/hosts
+echo "8.8.8.8 facebook.com" >> /etc/hosts
+
+# Output a message to inform the user that DNS configuration is complete
+echo "DNS configuration updated. You can now test it with 'ping'."
+
+# Flush DNS cache
+if command -v systemd-resolve &>/dev/null; then
+  systemd-resolve --flush-caches
+fi
