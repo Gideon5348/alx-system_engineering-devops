@@ -8,11 +8,11 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Update the /etc/hosts file to configure DNS resolution
-echo "127.0.0.2 localhost" >> /etc/hosts
+echo "127.0.0.2 localhost" > /etc/hosts
 echo "8.8.8.8 facebook.com" >> /etc/hosts
 
 # Output a message to inform the user that DNS configuration is complete
-echo "DNS configuration updated. You can now test it with 'ping'."
+echo ""
 
 # Flush DNS cache
 if command -v systemd-resolve &>/dev/null; then
