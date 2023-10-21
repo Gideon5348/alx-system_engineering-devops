@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Bash script to listen on port 98 on localhost using netcat
 
 # Check if the script is running with superuser privileges
