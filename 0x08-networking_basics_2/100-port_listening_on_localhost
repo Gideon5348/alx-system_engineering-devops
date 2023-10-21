@@ -1,0 +1,11 @@
+#!/bin/bash
+# Bash script to listen on port 98 on localhost using netcat
+
+# Check if the script is running with superuser privileges
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root or with sudo."
+  exit 1
+fi
+
+# Start listening on port 98
+nc -lk -p 98
