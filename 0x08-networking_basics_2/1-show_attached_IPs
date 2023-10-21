@@ -2,4 +2,4 @@
 # Bash script to display all active IPv4 IPs on the machine
 
 # Use the ip command to get a list of network interfaces and their associated IPv4 addresses
-ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+ip -4 addr show | awk '/inet / {print $2}' | cut -d'/' -f1
