@@ -11,9 +11,6 @@ fi
 echo "127.0.0.2 localhost" > /etc/hosts
 echo "8.8.8.8 facebook.com" >> /etc/hosts
 
-# Output a message to inform the user that DNS configuration is complete
-echo ""
-
 # Flush DNS cache
 if command -v systemd-resolve &>/dev/null; then
   systemd-resolve --flush-caches
