@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Bash script to display all active IPv4 IPs on the machine
 
 # Use the ip command to get a list of network interfaces and their associated IPv4 addresses
