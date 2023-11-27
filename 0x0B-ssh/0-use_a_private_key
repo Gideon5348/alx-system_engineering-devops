@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script connects to the server using SSH with a specific private key and user.
 
 # Define the server IP address
-server_ip="8.8.8.8"
+server_ip="100.26.157.83"
 
 # Use ssh with the private key ~/.ssh/school, connecting to the user ubuntu on the specified server
-ssh -i ~/.ssh/school ubuntu@$server_ip
+ssh -i ~/.ssh/school -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$server_ip
 
 # Print a message upon exiting the ssh session
 echo "Connection to $server_ip closed."
