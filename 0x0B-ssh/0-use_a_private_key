@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Define the server IP address
+server_ip="8.8.8.8"
+
+# Use ssh with the private key ~/.ssh/school, connecting to the user ubuntu on the specified server
+ssh -i ~/.ssh/school ubuntu@$server_ip
+
+# Print a message upon exiting the ssh session
+echo "Connection to $server_ip closed."
