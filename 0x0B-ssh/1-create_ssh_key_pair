@@ -11,18 +11,28 @@ bits=4096
 passphrase="betty"
 
 # Generate the RSA key pair
-ssh-keygen -t rsa -b $bits -f $key_name -N "$passphrase"
+ssh-keygen -t rsa -b $bits -f "$key_name" -N "$passphrase"
 
-# Check if the key file exists
+# Check if the key file exists after generation
 if [ -f "$key_name" ]; then
-    # Print a message about the generated key pair
-    echo "Generating public/private rsa key pair."
-    echo "Your identification has been saved in $key_name."
-    echo "Your public key has been saved in $key_name.pub."
-    echo "The key fingerprint is:"
-    ssh-keygen -l -f "$key_name"
-    echo "The key's randomart image is:"
-    ssh-keygen -l -v -f "$key_name" | grep "randomart"
+    # Check if the key has a passphrase
+    if ssh-keygen -p -P "$passphrase" -N "" -f "$key_name" > /dev/null 2>&1; then
+        # Check if the key is 4096 bits
+        if ssh-keygen -l -f "$key_name" | grep -q "4096"; then
+            # Print a message about the generated key pair
+            echo "Generating public/private rsa key pair."
+            echo "Your identification has been saved in $key_name."
+            echo "Your public key has been saved in $key_name.pub."
+            echo "The key fingerprint is:"
+            ssh-keygen -l -f "$key_name"
+            echo "The key's randomart image is:"
+            ssh-keygen -l -v -f "$key_name" | grep "randomart"
+        else
+            echo "Error: The RSA key is not 4096 bits."
+        fi
+    else
+        echo "Error: The RSA key has a passphrase."
+    fi
 else
     # Print an error message if the key file doesn't exist
     echo "Error: $key_name file does not exist after script execution."
