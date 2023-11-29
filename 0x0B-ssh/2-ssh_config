@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 Host 100.26.157.83
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
