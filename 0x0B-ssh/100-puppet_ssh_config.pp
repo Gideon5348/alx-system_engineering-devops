@@ -1,7 +1,10 @@
-# 100-puppet_ssh_config.pp
+#!/usr/bin/ env bash
+# Using puppet to connect without password
 
-file_line { 'Declare identity file':
-  path  => '/home/gideon/.ssh/config',
-  line  => '    IdentityFile ~/.ssh/school',
-  match => '^100.26.157.83$',
-}
+file { '/etc/ssh/ssh_config':
+ ensure -> present,
+ }
+
+ file_line { 'Turn off passwd auth':
+  path -> 
+ }
