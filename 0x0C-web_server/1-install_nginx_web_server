@@ -18,3 +18,11 @@ if [ $? -eq 0 ]; then
 else
     echo "Error: Nginx is not listening on port 80."
 fi
+
+# Check if the default page contains "Hello World!"
+nginx_default_page=$(curl -s http://localhost)
+if [[ $nginx_default_page == *"Hello World!"* ]]; then
+    echo "Nginx returns at its root / a page that contains Hello World!"
+else
+    echo "Error: Nginx does not return a page with Hello World!"
+fi
