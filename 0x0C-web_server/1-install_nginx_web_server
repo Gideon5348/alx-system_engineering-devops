@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-# This script installs and configures nginx on a new Ubuntu machine.
+# Bash script to install and configure nginx on web-01 server
 
-# Update package list and install nginx with the -y flag
-apt-get update
-apt-get install -y nginx
+# Update package list and install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
 # Create a simple HTML page with the content "Hello World!"
-echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Disable nginx daemon mode to avoid using systemctl for restarting
+sudo sed -i 's/daemon on/daemon off/' /etc/nginx/nginx.conf
 
 # Restart nginx without using systemctl
-/etc/init.d/nginx restart
+sudo service nginx restart
 
 # Check if nginx is listening on port 80
 netstat -tnl | grep ':80 ' > /dev/null
