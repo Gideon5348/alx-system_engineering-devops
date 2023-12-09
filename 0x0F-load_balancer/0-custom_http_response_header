@@ -10,3 +10,13 @@ echo 'add_header X-Served-By $hostname;' | sudo tee /etc/nginx/conf.d/custom_hea
 
 # Restart Nginx to apply the changes
 sudo service nginx restart
+
+# Check if the custom header is present in the HTTP response
+response=$(curl -sI http://localhost | grep -i 'X-Served-By')
+
+# Print 1 if the custom header is present, otherwise print 0
+if [ -n "$response" ]; then
+    echo "1"
+else
+    echo "0"
+fi
