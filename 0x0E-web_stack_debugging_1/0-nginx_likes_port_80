@@ -1,26 +1,5 @@
 #!/usr/bin/env bash
-# Script: 0-nginx_likes_port_80
-
-# Install net-tools if not already installed
-apt-get update
-apt-get install -y net-tools
-
-# Check current Nginx status
-service nginx status
-
-# Check ports Nginx is listening on
-echo "Current Nginx listening ports:"
-netstat -tulpn | grep nginx
-
-# Update Nginx configuration to listen on port 80
+# Fixes Ngnix server
 sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-
-# Restart Nginx service
-service nginx restart
-
-# Check updated Nginx status
-service nginx status
-
-# Check ports Nginx is listening on after the update
-echo "Updated Nginx listening ports:"
-netstat -tulpn | grep nginx
+sudo service nginx start
+kill "$(pgrep nginx | head -1)"
