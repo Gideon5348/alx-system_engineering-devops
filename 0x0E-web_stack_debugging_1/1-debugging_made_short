@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-# Script: 1-debugging_made_short
+# Script: 1-debugging_made_short_without_comment
 
-sed -i 's/80;/80 default_server;/' /etc/nginx/sites-available/default
+# Update Nginx configuration to listen on port 80
+sed -i 's/ listen 80;/ listen 80 default_server;/' /etc/nginx/sites-available/default
+
+# Restart Nginx service
 service nginx restart
+
+# Verify Nginx is running
+service nginx status | grep -q "nginx is running" || echo "nginx is not running"
