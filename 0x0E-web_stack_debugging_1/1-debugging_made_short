@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# script to fix nginx server
-sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+# Script: 1-debugging_made_short
+
+sed -i 's/80;/80 default_server;/' /etc/nginx/sites-available/default
 service nginx restart
-kill -9 "$(cat /run/nginx.pid)"
+service nginx status | grep -q "nginx is running" || echo "nginx is not running"
