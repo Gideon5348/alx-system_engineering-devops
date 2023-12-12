@@ -13,7 +13,7 @@ echo "Current Nginx listening ports:"
 netstat -tulpn | grep nginx
 
 # Update Nginx configuration to listen on port 80
-sed -i 's/ listen 80 default_server;/ listen 80;/' /etc/nginx/sites-available/default
+sed -i 's/ listen 80;/ listen 80 default_server;/' /etc/nginx/sites-available/default
 
 # Restart Nginx service
 service nginx restart
