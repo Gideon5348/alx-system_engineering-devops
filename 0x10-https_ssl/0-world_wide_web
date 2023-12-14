@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Displays information about subdomains
 
+
 # Function to display subdomain information
 display_info() {
     local sub_domain=$1
     local record_type=$(dig +short -t ANY "$sub_domain.$domain" | awk 'NR==1{print $4}')
     local destination=$(dig +short "$sub_domain.$domain" | head -n 1)
 
-    echo "The subdomain $sub_domain is a $record_type record and points to $destination"
+    echo "The subdomain $sub_domain is a $record_type and points to $destination"
 }
 
 # Main script logic
@@ -27,4 +28,4 @@ else
     # Display usage message for incorrect number of arguments
     echo "Usage: $0 domain [subdomain]"
     exit 1
-fi
+}
