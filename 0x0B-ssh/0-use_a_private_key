@@ -2,7 +2,7 @@
 # This script connects to the server using SSH with a specific private key and user.
 
 # Define the server IP address
-server_ip="100.26.157.83"
+server_ip="54.227.224.76"
 
 # Use ssh with the private key ~/.ssh/school, connecting to the user ubuntu on the specified server
 ssh -i ~/.ssh/school -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$server_ip
