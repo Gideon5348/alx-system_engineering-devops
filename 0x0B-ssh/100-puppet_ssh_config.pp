@@ -1,10 +1,15 @@
-#!/usr/bin/ env bash
-# Using puppet to connect without password
+# make changes to config file using Puppet
 
-file { '/etc/ssh/ssh_config':
- ensure -> present,
- }
+include stdlib
 
- file_line { 'Turn off passwd auth':
-  path -> 
- }
+file_line { 'Refuse to authenticate using a password':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PasswordAuthentication no',
+}
+
+file_line { 'Use private key':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/school'
+}
