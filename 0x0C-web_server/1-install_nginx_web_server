@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-# Installs Nginx with the following configurations:
-#+    Listens on port 80.
-#+    Returns a page containing "Hello World!" when queried
-#++    at the root with a curl GET request.
-
-#  updates the package lists for available software packages.
-apt-get update
-# installs the Nginx web server.
+# automates nginx setup
+apt-get -y update
 apt-get install -y nginx
-
 ufw allow 'Nginx HTTP'
 echo 'Hello World!' > /var/www/html/index.html
 service nginx start
