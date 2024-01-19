@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Configures a new ubuntu machine by installing
 
 # Update package information
 sudo apt-get update
