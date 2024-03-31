@@ -22,4 +22,3 @@ if __name__ == '__main__':
             """Done"""
             csvfile.write('"{}","{}","{}","{}"\n'.format(
                 user, user_name, completed, title_task))
-                
