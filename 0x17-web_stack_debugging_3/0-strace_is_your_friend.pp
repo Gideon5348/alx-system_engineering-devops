@@ -2,12 +2,14 @@
 #
 # Description: Fixing issue causing Apache 500 error
 #
-# Author: Your Name
+# Author: Gideon Mutai
 
 # Example resource types to fix the issue
-file { '/path/to/config/file':
+file { '/var/www/html/wp-settings.php':
   ensure  => file,
-  content => template('module_name/config_file.erb'),
+  content => file('/var/www/html/wp-settings.php'), # Read the content of wp-settings.php
+  replace => 'true',                               # Replace the content when it matches
+  notify  => Exec['restart_apache'],                # Notify restart_apache when changes are made
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
