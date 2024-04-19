@@ -10,13 +10,13 @@ Root Cause: Nginx configuration snafu led to a traffic jam, causing the server t
 
 Timeline:
 
-·10:00 PM: Monitoring alerts went off like fireworks on New Year's Eve, signaling increased response times and elevated error rates.
-·10:10 PM: Engineers sprang into action, suspecting backend issues initially, but soon turned their attention to the Nginx setup.
-·10:30 PM: Like detectives following a trail of breadcrumbs, we delved into Nginx configuration files, hunting for clues.
-·11:00 PM: The issue escalated faster than rush hour traffic as we realized a misconfigured proxy pass directive was causing chaos.
-·12:00 AM: Armed with our trusty text editor and a cup of strong coffee, we swiftly corrected the Nginx configuration to ease the traffic bottleneck.
-·12:30 AM: With the configuration fix deployed, the server started humming like a well-oiled machine, and normalcy was restored to our web traffic.
-·1:00 AM: Monitoring systems gave the all-clear signal, confirming that our web server was back in action, serving requests like a champ.
+·10:00 PM: Monitoring alerts went off like fireworks on New Year's Eve, signaling increased response times and elevated error rates.<br />
+·10:10 PM: Engineers sprang into action, suspecting backend issues initially, but soon turned their attention to the Nginx setup.<br />
+·10:30 PM: Like detectives following a trail of breadcrumbs, we delved into Nginx configuration files, hunting for clues.<br />
+·11:00 PM: The issue escalated faster than rush hour traffic as we realized a misconfigured proxy pass directive was causing chaos.<br />
+·12:00 AM: Armed with our trusty text editor and a cup of strong coffee, we swiftly corrected the Nginx configuration to ease the traffic bottleneck.<br />
+·12:30 AM: With the configuration fix deployed, the server started humming like a well-oiled machine, and normalcy was restored to our web traffic.<br />
+·1:00 AM: Monitoring systems gave the all-clear signal, confirming that our web server was back in action, serving requests like a champ.<br />
 
 Root Cause and Resolution:
 
