@@ -4,9 +4,8 @@
 
 Issue Summary:
 
-Duration: February 6th, 2024, 10:34 am to February 8, 2024, 1:00 AM (GMT +3)
-
-Impact: Our web server decided to take a nap, affecting 25% of users who experienced slow loading times and occasional 502 Bad Gateway errors.
+Duration: February 6th, 2024, 10:34 am to February 8, 2024, 1:00 AM (GMT +3)<br />
+Impact: Our web server decided to take a nap, affecting 25% of users who experienced slow loading times and occasional 502 Bad Gateway errors.<br />
 Root Cause: Nginx configuration snafu led to a traffic jam, causing the server to struggle under the weight of incoming requests.
 
 Timeline:
